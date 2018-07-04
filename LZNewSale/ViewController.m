@@ -9,37 +9,44 @@
 #import "ViewController.h"
 //iOS11 顶部statusBar
 #define IOS11_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 11.0)
-#define kNavbarHeight 64
+// 判断是否是iPhone X
+#define iPhoneX ([UIScreen instancesRespondToSelector:@selector(currentMode)] ? CGSizeEqualToSize(CGSizeMake(1125, 2436), [[UIScreen mainScreen] currentMode].size) : NO)
+// 导航栏高度
+#define kNavbarHeight (iPhoneX ? 88.f : 64.f)
 #define KSCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
 #define KSCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
 #define SCROL_Height 250
 #define MES_HEIGHT   60
-#define HOME_HEIGHT   34
+#define HOME_HEIGHT   (iPhoneX ? 34.f : 0.f)
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
 
-- (UIScrollView *)mainScrol{
-    if (!_mainScrol) {
-        _mainScrol = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT)];
-        _mainScrol.delegate = self;
-        _mainScrol.bounces = NO;
-    }
-    return _mainScrol;
-}
+//- (UIScrollView *)mainScrol{
+//    if (!_mainScrol) {
+//        _mainScrol = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT)];
+//        _mainScrol.delegate = self;
+//        _mainScrol.bounces = NO;
+//        _mainScrol.scrollEnabled = NO;
+//    }
+//    return _mainScrol;
+//}
 - (UIScrollView *)imgVScrol{
     if (!_imgVScrol) {
         _imgVScrol = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, SCROL_Height)];
         _imgVScrol.showsHorizontalScrollIndicator = NO;
         _imgVScrol.delegate = self;
+        _imgVScrol.contentSize = CGSizeMake(KSCREEN_WIDTH * 4, 0);
+        _imgVScrol.pagingEnabled = YES;
+        
     }
     return _imgVScrol;
 }
 - (UITableView *)leftTabV{
     if (!_leftTabV) {
-        _leftTabV = [[UITableView alloc]initWithFrame:CGRectMake(0,SCROL_Height + MES_HEIGHT, 100, KSCREEN_HEIGHT - HOME_HEIGHT - SCROL_Height - MES_HEIGHT) style:UITableViewStylePlain];
+        _leftTabV = [[UITableView alloc]initWithFrame:CGRectMake(0,SCROL_Height + MES_HEIGHT+kNavbarHeight, 100, KSCREEN_HEIGHT - HOME_HEIGHT - SCROL_Height - MES_HEIGHT) style:UITableViewStylePlain];
         [_leftTabV registerNib:[UINib nibWithNibName:@"leftTableViewCell" bundle:nil] forCellReuseIdentifier:@"leftTableViewCellID"];
         _leftTabV.delegate = self;
         _leftTabV.dataSource = self;
@@ -49,7 +56,7 @@
 }
 - (UIView *)backV{
     if (!_backV) {
-        _backV =  [[UIView alloc]initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, SCROL_Height + MES_HEIGHT)];
+        _backV =  [[UIView alloc]initWithFrame:CGRectMake(0, kNavbarHeight, KSCREEN_WIDTH, SCROL_Height + MES_HEIGHT)];
         _backV.userInteractionEnabled = YES;
     }
     return _backV;
@@ -74,10 +81,6 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"天才零售机";
-    
-    self.imgVScrol.contentSize = CGSizeMake(4*KSCREEN_WIDTH, SCROL_Height);
-    self.imgVScrol.pagingEnabled = YES;
-    
     for (int i = 1; i < 5; i ++) {
         UIImageView * imgV = [[UIImageView alloc]initWithFrame:CGRectMake(KSCREEN_WIDTH*(i-1), 0, KSCREEN_WIDTH, SCROL_Height)];
         imgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d",i]];
@@ -93,7 +96,7 @@
     _cabinetV.text = @"🚇 当前机柜:北京天安门广场贩卖机    ☎️ 联系商家";
     _cabinetV.font = [UIFont systemFontOfSize:16];
     [self.backV addSubview:_cabinetV];
-    [self.mainScrol addSubview:self.backV];
+    [self.view addSubview:self.backV];
     _pc = [[UIPageControl alloc]initWithFrame:CGRectMake(KSCREEN_WIDTH/2.0, self.imgVScrol.bottom - 30, 10, 10)];
     _pc.numberOfPages = 4;
     _pc.pageIndicatorTintColor = [UIColor orangeColor];
@@ -101,7 +104,7 @@
     [self.backV addSubview:_pc];
     [self createUI];
     if (IOS11_OR_LATER) {
-        self.mainScrol.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        self.view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         self.leftTabV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         self.rightTabV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -113,46 +116,44 @@
 
 
 - (void)createUI{
-    self.mainScrol.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+//    self.mainScrol.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     self.leftTabV.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     self.rightTabV.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview: self.mainScrol];
-    [self.mainScrol addSubview: self.leftTabV];
-    [self.mainScrol addSubview: self.rightTabV];
+//    [self.view addSubview: self.mainScrol];
+    [self.view addSubview: self.leftTabV];
+    [self.view addSubview: self.rightTabV];
     
 }
 #pragma mark - scrollview
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if ([scrollView isEqual:self.leftTabV] || [scrollView isEqual:self.rightTabV])
+    if ([scrollView isEqual:self.leftTabV])
     {
         CGFloat topHeight = self.backV.height;
         CGFloat offsetY = scrollView.contentOffset.y;
         
-        //        NSLog(@"%f %.2f",offsetY,topHeight);
+       NSLog(@"%f %.2f",offsetY, self.rightTabV.y);
         
         if (offsetY > topHeight)
         {
-            self.backV.y =  - topHeight;
-            self.leftTabV.y = self.backV.bottom;
-            self.leftTabV.height = KSCREEN_HEIGHT - HOME_HEIGHT;
-            self.rightTabV.y = self.backV.bottom;
-            self.rightTabV.height = self.leftTabV.frame.size.height;
+            self.backV.y =   - topHeight + kNavbarHeight;
+            self.leftTabV.y = self.rightTabV.y = self.backV.bottom;
+            self.leftTabV.height = self.rightTabV.height = KSCREEN_HEIGHT - kNavbarHeight - HOME_HEIGHT;
+            
         }
         else if (offsetY < 0)
         {
-            self.backV.y =  - offsetY;
-            self.leftTabV.y =  self.backV.bottom;
-            self.leftTabV.height = KSCREEN_HEIGHT - self.backV.bottom - HOME_HEIGHT;
-            self.rightTabV.y = self.backV.bottom;
-            self.rightTabV.height = self.leftTabV.frame.size.height;
+            self.backV.y =  - offsetY+ kNavbarHeight;
+            self.leftTabV.y =  self.rightTabV.y = self.backV.bottom;
+            self.leftTabV.height = self.rightTabV.height =  KSCREEN_HEIGHT - self.backV.bottom - HOME_HEIGHT;
+            
+     
         }
         else
         {
-            self.backV.y =  - offsetY;
-            self.leftTabV.y = self.backV.bottom;
-            self.leftTabV.height = KSCREEN_HEIGHT - self.backV.bottom - HOME_HEIGHT;
-            self.rightTabV.y = self.backV.bottom;
-            self.rightTabV.height = self.leftTabV.frame.size.height;
+            self.backV.y =  - offsetY+ kNavbarHeight;
+            self.leftTabV.y =  self.rightTabV.y = self.backV.bottom;
+            self.leftTabV.height =  self.rightTabV.height = KSCREEN_HEIGHT - self.backV.bottom - HOME_HEIGHT;
+           
         }
         
     }
@@ -160,6 +161,7 @@
     {
         //        轮播图滚动
         _pc.currentPage = scrollView.contentOffset.x/KSCREEN_WIDTH;
+//        scrollView.contentOffset = CGPointMake(KSCREEN_WIDTH*_pc.currentPage, 0);
     }
     
 }
@@ -169,7 +171,7 @@
     if ([tableView isEqual:self.leftTabV]) {
         return 25;
     }
-    return 30;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{

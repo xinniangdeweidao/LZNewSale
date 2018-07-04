@@ -13,7 +13,7 @@
 #import "UIView+WHView.h"
 @interface ViewController : UIViewController<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@property (nonatomic,strong) UIScrollView * mainScrol;
+//@property (nonatomic,strong) UIView * mainScrol;
 @property (nonatomic,strong) UIScrollView * imgVScrol;
 @property (nonatomic,strong) UITableView * leftTabV;
 @property (nonatomic,strong) UITableView * rightTabV;

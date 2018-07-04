@@ -14,6 +14,17 @@
 		24EB59FA20ECB65A0094BE19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24EB59F920ECB65A0094BE19 /* Assets.xcassets */; };
 		24EB59FD20ECB65A0094BE19 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24EB59FB20ECB65A0094BE19 /* LaunchScreen.storyboard */; };
 		24EB5A0020ECB65A0094BE19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EB59FF20ECB65A0094BE19 /* main.m */; };
+		24EB5A1520ECB68E0094BE19 /* UIView+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EB5A0620ECB68A0094BE19 /* UIView+Convenience.m */; };
+		24EB5A1620ECB68E0094BE19 /* pt-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 24EB5A0720ECB68A0094BE19 /* pt-small.png */; };
+		24EB5A1720ECB68E0094BE19 /* rightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EB5A0820ECB68A0094BE19 /* rightTableViewCell.m */; };
+		24EB5A1820ECB68E0094BE19 /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 24EB5A0920ECB68A0094BE19 /* 1.png */; };
+		24EB5A1920ECB68E0094BE19 /* UIView+WHView.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EB5A0A20ECB68A0094BE19 /* UIView+WHView.m */; };
+		24EB5A1A20ECB68E0094BE19 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 24EB5A0D20ECB68B0094BE19 /* 4.png */; };
+		24EB5A1B20ECB68E0094BE19 /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24EB5A0E20ECB68B0094BE19 /* 2.png */; };
+		24EB5A1C20ECB68E0094BE19 /* leftTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24EB5A0F20ECB68C0094BE19 /* leftTableViewCell.xib */; };
+		24EB5A1D20ECB68E0094BE19 /* leftTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 24EB5A1220ECB68D0094BE19 /* leftTableViewCell.m */; };
+		24EB5A1E20ECB68E0094BE19 /* rightTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24EB5A1320ECB68D0094BE19 /* rightTableViewCell.xib */; };
+		24EB5A1F20ECB68E0094BE19 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 24EB5A1420ECB68D0094BE19 /* 3.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +39,21 @@
 		24EB59FC20ECB65A0094BE19 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		24EB59FE20ECB65A0094BE19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24EB59FF20ECB65A0094BE19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		24EB5A0620ECB68A0094BE19 /* UIView+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Convenience.m"; sourceTree = "<group>"; };
+		24EB5A0720ECB68A0094BE19 /* pt-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pt-small.png"; sourceTree = "<group>"; };
+		24EB5A0820ECB68A0094BE19 /* rightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = rightTableViewCell.m; sourceTree = "<group>"; };
+		24EB5A0920ECB68A0094BE19 /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
+		24EB5A0A20ECB68A0094BE19 /* UIView+WHView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WHView.m"; sourceTree = "<group>"; };
+		24EB5A0B20ECB68B0094BE19 /* UIView+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Convenience.h"; sourceTree = "<group>"; };
+		24EB5A0C20ECB68B0094BE19 /* UIView+WHView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WHView.h"; sourceTree = "<group>"; };
+		24EB5A0D20ECB68B0094BE19 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		24EB5A0E20ECB68B0094BE19 /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
+		24EB5A0F20ECB68C0094BE19 /* leftTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = leftTableViewCell.xib; sourceTree = "<group>"; };
+		24EB5A1020ECB68C0094BE19 /* leftTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = leftTableViewCell.h; sourceTree = "<group>"; };
+		24EB5A1120ECB68D0094BE19 /* rightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rightTableViewCell.h; sourceTree = "<group>"; };
+		24EB5A1220ECB68D0094BE19 /* leftTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = leftTableViewCell.m; sourceTree = "<group>"; };
+		24EB5A1320ECB68D0094BE19 /* rightTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = rightTableViewCell.xib; sourceTree = "<group>"; };
+		24EB5A1420ECB68D0094BE19 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +70,21 @@
 		24EB59E120ECB65A0094BE19 = {
 			isa = PBXGroup;
 			children = (
+				24EB5A0920ECB68A0094BE19 /* 1.png */,
+				24EB5A0E20ECB68B0094BE19 /* 2.png */,
+				24EB5A1420ECB68D0094BE19 /* 3.png */,
+				24EB5A0D20ECB68B0094BE19 /* 4.png */,
+				24EB5A1020ECB68C0094BE19 /* leftTableViewCell.h */,
+				24EB5A1220ECB68D0094BE19 /* leftTableViewCell.m */,
+				24EB5A0F20ECB68C0094BE19 /* leftTableViewCell.xib */,
+				24EB5A0720ECB68A0094BE19 /* pt-small.png */,
+				24EB5A1120ECB68D0094BE19 /* rightTableViewCell.h */,
+				24EB5A0820ECB68A0094BE19 /* rightTableViewCell.m */,
+				24EB5A1320ECB68D0094BE19 /* rightTableViewCell.xib */,
+				24EB5A0B20ECB68B0094BE19 /* UIView+Convenience.h */,
+				24EB5A0620ECB68A0094BE19 /* UIView+Convenience.m */,
+				24EB5A0C20ECB68B0094BE19 /* UIView+WHView.h */,
+				24EB5A0A20ECB68A0094BE19 /* UIView+WHView.m */,
 				24EB59EC20ECB65A0094BE19 /* LZNewSale */,
 				24EB59EB20ECB65A0094BE19 /* Products */,
 			);
@@ -132,9 +173,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EB5A1A20ECB68E0094BE19 /* 4.png in Resources */,
+				24EB5A1E20ECB68E0094BE19 /* rightTableViewCell.xib in Resources */,
 				24EB59FD20ECB65A0094BE19 /* LaunchScreen.storyboard in Resources */,
+				24EB5A1B20ECB68E0094BE19 /* 2.png in Resources */,
+				24EB5A1620ECB68E0094BE19 /* pt-small.png in Resources */,
+				24EB5A1F20ECB68E0094BE19 /* 3.png in Resources */,
+				24EB5A1C20ECB68E0094BE19 /* leftTableViewCell.xib in Resources */,
 				24EB59FA20ECB65A0094BE19 /* Assets.xcassets in Resources */,
 				24EB59F520ECB65A0094BE19 /* Main.storyboard in Resources */,
+				24EB5A1820ECB68E0094BE19 /* 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +193,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EB5A1720ECB68E0094BE19 /* rightTableViewCell.m in Sources */,
 				24EB59F220ECB65A0094BE19 /* ViewController.m in Sources */,
+				24EB5A1520ECB68E0094BE19 /* UIView+Convenience.m in Sources */,
+				24EB5A1920ECB68E0094BE19 /* UIView+WHView.m in Sources */,
+				24EB5A1D20ECB68E0094BE19 /* leftTableViewCell.m in Sources */,
 				24EB59EF20ECB65A0094BE19 /* AppDelegate.m in Sources */,
 				24EB5A0020ECB65A0094BE19 /* main.m in Sources */,
 				24EB59F820ECB65A0094BE19 /* LZNewSale.xcdatamodeld in Sources */,
@@ -283,7 +335,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3244P8AS39;
 				INFOPLIST_FILE = LZNewSale/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lizhen.LZNewSale;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -296,7 +350,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3244P8AS39;
 				INFOPLIST_FILE = LZNewSale/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lizhen.LZNewSale;
 				PRODUCT_NAME = "$(TARGET_NAME)";

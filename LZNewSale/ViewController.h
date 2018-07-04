@@ -7,9 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "leftTableViewCell.h"
+#import "rightTableViewCell.h"
+#import "UIView+Convenience.h"
+#import "UIView+WHView.h"
+@interface ViewController : UIViewController<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>
 
-@interface ViewController : UIViewController
-
-
+@property (nonatomic,strong) UIScrollView * mainScrol;
+@property (nonatomic,strong) UIScrollView * imgVScrol;
+@property (nonatomic,strong) UITableView * leftTabV;
+@property (nonatomic,strong) UITableView * rightTabV;
+@property (nonatomic,copy) NSMutableArray * imgArr;
+@property (nonatomic,strong) UIPageControl * pc;
+@property (nonatomic,strong) UIView *backV;
+@property (nonatomic,strong) UILabel * cabinetV;//柜子
 @end
 

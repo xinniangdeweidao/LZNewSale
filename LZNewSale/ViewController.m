@@ -86,8 +86,8 @@
     [self.backV addSubview:self.imgVScrol];
     //零售柜地址
     _cabinetV = [[UILabel alloc]initWithFrame:CGRectMake(10, self.imgVScrol.bottom, KSCREEN_WIDTH - 10*2, CGRectGetHeight(self.backV.frame) - self.imgVScrol.bottom)];
-    _cabinetV.text = @"🚇 当前机柜:北京天安门广场贩卖机    ☎️ 联系商家";
-    _cabinetV.font = [UIFont systemFontOfSize:16];
+    _cabinetV.text = @"🚇 当前机柜:北京天安门广场贩卖机     ☎️ 联系商家";
+    _cabinetV.font = [UIFont systemFontOfSize:15];
     [self.backV addSubview:_cabinetV];
      [self.view addSubview:self.backV];
     _pc = [[UIPageControl alloc]initWithFrame:CGRectMake(KSCREEN_WIDTH/2.0, self.imgVScrol.bottom - 30, 10, 10)];
@@ -97,6 +97,7 @@
     [self.backV addSubview:_pc];
     [self createUI];
     if (IOS11_OR_LATER) {
+        self.imgVScrol.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;//这句话是防止滑动左边的tableview时，轮播图的图片往下移动
         self.leftTabV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         self.rightTabV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }

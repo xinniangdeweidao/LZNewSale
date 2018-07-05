@@ -24,21 +24,12 @@
 
 @implementation ViewController
 
-//- (UIScrollView *)mainScrol{
-//    if (!_mainScrol) {
-//        _mainScrol = [[UIScrollView alloc]initWithFrame: CGRectMake(0, 0, KSCREEN_WIDTH, KSCREEN_HEIGHT)];
-//        _mainScrol.delegate = self;
-//        _mainScrol.bounces = NO;
-//        _mainScrol.scrollEnabled = NO;
-//    }
-//    return _mainScrol;
-//}
 - (UIScrollView *)imgVScrol{
     if (!_imgVScrol) {
         _imgVScrol = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, KSCREEN_WIDTH, SCROL_Height)];
         _imgVScrol.showsHorizontalScrollIndicator = NO;
         _imgVScrol.delegate = self;
-        _imgVScrol.contentSize = CGSizeMake(KSCREEN_WIDTH * 4, 0);
+       
         _imgVScrol.pagingEnabled = YES;
         
     }
@@ -81,8 +72,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"天才零售机";
+   
     for (int i = 1; i < 5; i ++) {
-        UIImageView * imgV = [[UIImageView alloc]initWithFrame:CGRectMake(KSCREEN_WIDTH*(i-1), 0, KSCREEN_WIDTH, SCROL_Height)];
+        UIImageView * imgV = [[UIImageView alloc]initWithFrame:CGRectMake(KSCREEN_WIDTH*(i-1), 0, KSCREEN_WIDTH, CGRectGetHeight(self.imgVScrol.frame))];
         imgV.image = [UIImage imageNamed:[NSString stringWithFormat:@"%d",i]];
         
         imgV.contentMode = UIViewContentModeScaleAspectFill;
@@ -90,13 +82,14 @@
         [self.imgVScrol addSubview:imgV];
         
     }
+    self.imgVScrol.contentSize = CGSizeMake(KSCREEN_WIDTH * 4, 0);
     [self.backV addSubview:self.imgVScrol];
     //零售柜地址
-    _cabinetV = [[UILabel alloc]initWithFrame:CGRectMake(10, self.imgVScrol.bottom, KSCREEN_WIDTH - 10*2, MES_HEIGHT)];
+    _cabinetV = [[UILabel alloc]initWithFrame:CGRectMake(10, self.imgVScrol.bottom, KSCREEN_WIDTH - 10*2, CGRectGetHeight(self.backV.frame) - self.imgVScrol.bottom)];
     _cabinetV.text = @"🚇 当前机柜:北京天安门广场贩卖机    ☎️ 联系商家";
     _cabinetV.font = [UIFont systemFontOfSize:16];
     [self.backV addSubview:_cabinetV];
-    [self.view addSubview:self.backV];
+     [self.view addSubview:self.backV];
     _pc = [[UIPageControl alloc]initWithFrame:CGRectMake(KSCREEN_WIDTH/2.0, self.imgVScrol.bottom - 30, 10, 10)];
     _pc.numberOfPages = 4;
     _pc.pageIndicatorTintColor = [UIColor orangeColor];
@@ -104,7 +97,6 @@
     [self.backV addSubview:_pc];
     [self createUI];
     if (IOS11_OR_LATER) {
-//        self.view.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         self.leftTabV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
         self.rightTabV.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
     }
@@ -116,10 +108,8 @@
 
 
 - (void)createUI{
-//    self.mainScrol.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     self.leftTabV.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     self.rightTabV.backgroundColor = [UIColor whiteColor];
-//    [self.view addSubview: self.mainScrol];
     [self.view addSubview: self.leftTabV];
     [self.view addSubview: self.rightTabV];
     
